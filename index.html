@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segway Scooters</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products {
+    display: flex;
+    gap: 30px;
+}
+
+.card {
+    width: 350px;
+    height: 420px;
+    border: 1px solid #dfe3eb;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+/* top grey area */
+.top {
+    height: 35px;
+    background: #f4f6fa;
+}
+
+
+/* picture area */
+.image {
+    height: 315px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.image img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+
+/* bottom name */
+.name {
+    height: 70px;
+    background: #f4f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+@media(max-width:1100px){
+    .products {
+        flex-direction: column;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="products">
+
+
+<div class="card" onclick="selectScooter('ZT3')">
+    <div class="top"></div>
+
+    <div class="image">
+        <img src="zt3.png">
+    </div>
+
+    <div class="name">
+        ZT3
+    </div>
+</div>
+
+
+
+<div class="card" onclick="selectScooter('Max G3')">
+    <div class="top"></div>
+
+    <div class="image">
+        <img src="maxg3.png">
+    </div>
+
+    <div class="name">
+        Max G3
+    </div>
+</div>
+
+
+
+
+<div class="card" onclick="selectScooter('F3 / F3 Pro')">
+    <div class="top"></div>
+
+    <div class="image">
+        <img src="f3.png">
+    </div>
+
+    <div class="name">
+        F3 / F3 Pro
+    </div>
+</div>
+
+
+</div>
+
+
+
+<script>
+function selectScooter(name){
+    window.location.href = name.replaceAll(" ","-") + ".html";
+}
+</script>
+
+
+</body>
+</html>
