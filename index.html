@@ -16,167 +16,413 @@
     font-family:Arial,sans-serif;
 }
 
+
 body{
+
     min-height:100vh;
-    background:white;
+
+    background:
+    linear-gradient(135deg,#ffffff 0%,#dfe3ea 50%,#ffffff 100%);
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    overflow:hidden;
 }
+
+
+/* Wellen Hintergrund */
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+    height:900px;
+
+    background:
+    radial-gradient(circle,#bfc5d0 0%,transparent 70%);
+
+    top:-400px;
+    left:-300px;
+
+    opacity:.5;
+
+}
+
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:800px;
+    height:800px;
+
+    background:
+    radial-gradient(circle,#cfd5df 0%,transparent 70%);
+
+    bottom:-400px;
+    right:-300px;
+
+    opacity:.6;
+
+}
+
+
+
 
 #choose{
+
     text-align:center;
+
     animation:fade 1s;
+
+    position:relative;
+    z-index:2;
+
 }
+
+
 
 .title{
+
     font-size:45px;
+
     font-weight:900;
+
     margin-bottom:45px;
+
 }
+
+
+
+
 
 .products{
+
     display:flex;
+
     gap:30px;
+
 }
+
+
 
 .card{
+
+
     width:350px;
+
     height:420px;
+
     border:1px solid #ddd;
-    border-radius:8px;
+
+    border-radius:15px;
+
     overflow:hidden;
+
     cursor:pointer;
+
+    background:white;
+
     transition:.3s;
+
 }
+
+
 
 .card:hover{
+
     transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+
 }
+
+
+
 
 .top{
+
     height:35px;
+
     background:#f3f5f9;
+
 }
+
+
+
 
 .image{
+
     height:315px;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
 }
+
+
 
 .image img{
+
     width:90%;
+
     height:90%;
+
     object-fit:contain;
+
 }
 
+
+
 .name{
+
     height:70px;
+
     background:#f3f5f9;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     font-size:25px;
+
     font-weight:900;
+
 }
+
+
+
 
 
 #product{
+
     display:none;
+
     animation:slide 1s;
+
+    position:relative;
+
+    z-index:2;
+
 }
+
+
+
 
 .product-box{
+
     display:flex;
+
     align-items:center;
+
     gap:80px;
+
 }
+
+
+
 
 .product-box img{
+
     width:550px;
+
     animation:float 3s infinite ease-in-out;
+
 }
+
+
+
+
 
 .info h1{
+
     font-size:55px;
+
     font-weight:900;
+
     margin-bottom:35px;
+
 }
+
+
+
+
 
 .stat{
+
+
     background:#f3f5f9;
+
     width:350px;
+
     padding:25px;
+
     border-radius:15px;
+
     margin-bottom:20px;
+
     font-size:22px;
+
     font-weight:bold;
+
     border:1px solid #ddd;
-    transition:.3s;
+
 }
 
-.stat:hover{
-    transform:scale(1.05);
+
+
+
+.buy,
+.back{
+
+
+    width:350px;
+
+    padding:20px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    margin-top:10px;
+
 }
+
+
 
 .buy{
-    margin-top:10px;
-    width:350px;
-    padding:20px;
+
     background:#111;
+
     color:white;
-    border:none;
-    border-radius:15px;
-    font-size:22px;
-    font-weight:900;
-    cursor:pointer;
+
 }
 
+
+
 .buy:hover{
-    transform:scale(1.08);
+
     background:#333;
+
+    transform:scale(1.05);
+
 }
+
+
+
+
+.back{
+
+    background:#ddd;
+
+    color:#111;
+
+}
+
+
+
+.back:hover{
+
+    background:#bbb;
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
 
 
 @keyframes float{
+
     50%{
+
         transform:translateY(-15px);
+
     }
+
 }
+
+
 
 @keyframes fade{
+
     from{
+
         opacity:0;
+
     }
+
     to{
+
         opacity:1;
+
     }
+
 }
 
+
+
+
 @keyframes slide{
+
     from{
+
         opacity:0;
+
         transform:translateX(100px);
+
     }
+
     to{
+
         opacity:1;
+
         transform:translateX(0);
+
     }
+
 }
+
+
 
 
 @media(max-width:1000px){
 
+
 .products{
+
     flex-direction:column;
+
 }
 
+
 .product-box{
+
     flex-direction:column;
+
 }
+
 
 }
 
@@ -185,17 +431,24 @@ body{
 </head>
 
 
+
 <body>
+
 
 
 <div id="choose">
 
+
 <div class="title">
+
 Choose Your Scooter
+
 </div>
 
 
+
 <div class="products">
+
 
 
 <div class="card" onclick="openProduct('ZT3','zt3.png')">
@@ -211,6 +464,7 @@ ZT3
 </div>
 
 </div>
+
 
 
 
@@ -248,7 +502,10 @@ F3 / F3 Pro
 
 </div>
 
+
 </div>
+
+
 
 
 
@@ -263,10 +520,12 @@ F3 / F3 Pro
 <img id="bigImage">
 
 
+
 <div class="info">
 
 
 <h1 id="productName"></h1>
+
 
 
 <div class="stat">
@@ -299,17 +558,29 @@ F3 / F3 Pro
 
 <br><br>
 
-3 €
+2.99 €
 
 </div>
 
 
 
-<button class="buy">
+
+<button class="buy" onclick="buy()">
+
 Jetzt kaufen
+
 </button>
 
 
+
+<button class="back" onclick="back()">
+
+← Zurück
+
+</button>
+
+
+
 </div>
 
 
@@ -317,6 +588,9 @@ Jetzt kaufen
 
 
 </div>
+
+
+
 
 
 
@@ -324,28 +598,40 @@ Jetzt kaufen
 
 <script>
 
+
 function openProduct(name,img){
+
 
 let air="";
 let ground="";
 
 
+
 if(name=="ZT3"){
-    air="50 km/h";
-    ground="47 km/h";
+
+air="50 km/h";
+ground="47 km/h";
+
 }
+
 
 
 if(name=="Max G3"){
-    air="51 km/h";
-    ground="49-50 km/h";
+
+air="51 km/h";
+ground="49-50 km/h";
+
 }
+
 
 
 if(name=="F3 / F3 Pro"){
-    air="60 km/h";
-    ground="50 km/h";
+
+air="60 km/h";
+ground="50 km/h";
+
 }
+
 
 
 
@@ -353,18 +639,45 @@ document.getElementById("choose").style.display="none";
 
 document.getElementById("product").style.display="block";
 
+
 document.getElementById("bigImage").src=img;
+
 
 document.getElementById("productName").innerHTML=name;
 
+
 document.getElementById("airSpeed").innerHTML=air;
+
 
 document.getElementById("groundSpeed").innerHTML=ground;
 
 
+
 }
 
+
+
+function back(){
+
+document.getElementById("product").style.display="none";
+
+document.getElementById("choose").style.display="block";
+
+}
+
+
+
+
+function buy(){
+
+window.location.href="https://discord.gg/47G3Tk9y37";
+
+}
+
+
+
 </script>
+
 
 
 </body>
