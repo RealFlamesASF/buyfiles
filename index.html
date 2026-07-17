@@ -1,88 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Segway Scooters</title>
+
+<title>Choose Your Scooter</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-body {
-    background: white;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body{
+    min-height:100vh;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-.products {
-    display: flex;
-    gap: 30px;
+#choose{
+    text-align:center;
+    animation:fade 1s;
 }
 
-.card {
-    width: 350px;
-    height: 420px;
-    border: 1px solid #dfe3eb;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 0.25s;
+.title{
+    font-size:45px;
+    font-weight:900;
+    margin-bottom:45px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.products{
+    display:flex;
+    gap:30px;
+}
+
+.card{
+    width:350px;
+    height:420px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.top{
+    height:35px;
+    background:#f3f5f9;
+}
+
+.image{
+    height:315px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.image img{
+    width:90%;
+    height:90%;
+    object-fit:contain;
+}
+
+.name{
+    height:70px;
+    background:#f3f5f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    font-weight:900;
 }
 
 
-/* top grey area */
-.top {
-    height: 35px;
-    background: #f4f6fa;
+#product{
+    display:none;
+    animation:slide 1s;
+}
+
+.product-box{
+    display:flex;
+    align-items:center;
+    gap:80px;
+}
+
+.product-box img{
+    width:550px;
+    animation:float 3s infinite ease-in-out;
+}
+
+.info h1{
+    font-size:55px;
+    font-weight:900;
+    margin-bottom:35px;
+}
+
+.stat{
+    background:#f3f5f9;
+    width:350px;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    font-size:22px;
+    font-weight:bold;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:scale(1.05);
+}
+
+.buy{
+    margin-top:10px;
+    width:350px;
+    padding:20px;
+    background:#111;
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:22px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.buy:hover{
+    transform:scale(1.08);
+    background:#333;
 }
 
 
-/* picture area */
-.image {
-    height: 315px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-}
-
-.image img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-}
-
-
-/* bottom name */
-.name {
-    height: 70px;
-    background: #f4f6fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-
-@media(max-width:1100px){
-    .products {
-        flex-direction: column;
+@keyframes float{
+    50%{
+        transform:translateY(-15px);
     }
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes slide{
+    from{
+        opacity:0;
+        transform:translateX(100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+
+@media(max-width:1000px){
+
+.products{
+    flex-direction:column;
+}
+
+.product-box{
+    flex-direction:column;
+}
+
 }
 
 </style>
@@ -93,59 +188,182 @@ body {
 <body>
 
 
+<div id="choose">
+
+<div class="title">
+Choose Your Scooter
+</div>
+
+
 <div class="products">
 
 
-<div class="card" onclick="selectScooter('ZT3')">
-    <div class="top"></div>
+<div class="card" onclick="openProduct('ZT3','zt3.png')">
 
-    <div class="image">
-        <img src="zt3.png">
-    </div>
+<div class="top"></div>
 
-    <div class="name">
-        ZT3
-    </div>
+<div class="image">
+<img src="zt3.png">
+</div>
+
+<div class="name">
+ZT3
+</div>
+
 </div>
 
 
 
-<div class="card" onclick="selectScooter('Max G3')">
-    <div class="top"></div>
+<div class="card" onclick="openProduct('Max G3','maxg3.png')">
 
-    <div class="image">
-        <img src="maxg3.png">
-    </div>
+<div class="top"></div>
 
-    <div class="name">
-        Max G3
-    </div>
+<div class="image">
+<img src="maxg3.png">
+</div>
+
+<div class="name">
+Max G3
+</div>
+
 </div>
 
 
 
 
-<div class="card" onclick="selectScooter('F3 / F3 Pro')">
-    <div class="top"></div>
+<div class="card" onclick="openProduct('F3 / F3 Pro','f3.png')">
 
-    <div class="image">
-        <img src="f3.png">
-    </div>
+<div class="top"></div>
 
-    <div class="name">
-        F3 / F3 Pro
-    </div>
+<div class="image">
+<img src="f3.png">
+</div>
+
+<div class="name">
+F3 / F3 Pro
+</div>
+
 </div>
 
 
 </div>
+
+</div>
+
+
+
+
+
+<div id="product">
+
+
+<div class="product-box">
+
+
+<img id="bigImage">
+
+
+<div class="info">
+
+
+<h1 id="productName"></h1>
+
+
+<div class="stat">
+
+🚀 Höchstgeschwindigkeit Luft
+
+<br><br>
+
+<span id="airSpeed"></span>
+
+</div>
+
+
+
+<div class="stat">
+
+🛞 Höchstgeschwindigkeit Boden
+
+<br><br>
+
+<span id="groundSpeed"></span>
+
+</div>
+
+
+
+<div class="stat">
+
+💰 Preis
+
+<br><br>
+
+3 €
+
+</div>
+
+
+
+<button class="buy">
+Jetzt kaufen
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
 
 
 
 <script>
-function selectScooter(name){
-    window.location.href = name.replaceAll(" ","-") + ".html";
+
+function openProduct(name,img){
+
+let air="";
+let ground="";
+
+
+if(name=="ZT3"){
+    air="50 km/h";
+    ground="47 km/h";
 }
+
+
+if(name=="Max G3"){
+    air="51 km/h";
+    ground="49-50 km/h";
+}
+
+
+if(name=="F3 / F3 Pro"){
+    air="60 km/h";
+    ground="50 km/h";
+}
+
+
+
+document.getElementById("choose").style.display="none";
+
+document.getElementById("product").style.display="block";
+
+document.getElementById("bigImage").src=img;
+
+document.getElementById("productName").innerHTML=name;
+
+document.getElementById("airSpeed").innerHTML=air;
+
+document.getElementById("groundSpeed").innerHTML=ground;
+
+
+}
+
 </script>
 
 
